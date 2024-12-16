@@ -84,4 +84,11 @@ const char* predict_candidate(RimeSessionId session_id, int index) {
   return str.c_str();
 }
 
+void reset_commit_text(RimeSessionId session_id) {
+  an<Session> session(Service::instance().GetSession(session_id));
+  if (!session)
+    return;
+  session->ResetCommitText();
+}
+
 }  // namespace hamster
